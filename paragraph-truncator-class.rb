@@ -1,3 +1,5 @@
+require "active_support/core_ext/string/filters.rb"
+
 # Class: ParagraphTruncator
 #
 # Truncates a paragraph
@@ -8,7 +10,7 @@
 # @cut_off     - String: Text to show at end of truncated paragraph.
 #
 # Public Methods:
-# #print_text
+# #truncate
 
 
 class ParagraphTruncator
@@ -27,14 +29,14 @@ class ParagraphTruncator
   # State Changes:
   # Sets instance variables @text, @char_length, @cut_off
   
-  def initialize (text, char_length, cut_off)
-    @text = text
-    @char_length = char_length
+  def initialize(text, word_num, cut_off)
+    @word_num = word_num
     @cut_off = cut_off
+    @text = text
   end
   
-  # Public: #print_text
-  # Creates a variable to represent the shortened text
+  # Public: #truncate
+  # Basically just runs the ActiveSupport method #truncate_words
   #
   # Parameters:
   # None
@@ -45,8 +47,7 @@ class ParagraphTruncator
   # State Changes:
   # None
   
-  def print_text
-   shortened_text = @text[0, @char_length]
-   return "#{shortened_text} #{@cut_off}"
+  def truncate
+    @text.truncate_words(@word_num, omission: "#{@cut_off}")
  end
 end
