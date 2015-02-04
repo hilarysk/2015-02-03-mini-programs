@@ -39,9 +39,9 @@ class PhoneNumberFormatter
   # None
   
   def format_phone
-    areacode = phone_number[0, 3]
-    firstpart = phone_number[3, 3]
-    secondpart = phone_number[6, 4]
+    areacode = @phone_number[0, 3]
+    firstpart = @phone_number[3, 3]
+    secondpart = @phone_number[6, 4]
     return "(#{areacode}) #{firstpart}-#{secondpart}"
   end
 end

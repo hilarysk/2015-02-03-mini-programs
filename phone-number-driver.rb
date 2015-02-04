@@ -1,7 +1,7 @@
 require "pry"
 require_relative "phone-number-formatter-class.rb"
 
-puts "What's your phone number? (Ex: 4452326699)"
+puts "What's your phone number, including area code but excluding country code? (Ex: 4452326699)"
 phone_number = gets.chomp.gsub(/\s+/, "")
 
 until phone_number.length == 10 && phone_number.to_i != 0
