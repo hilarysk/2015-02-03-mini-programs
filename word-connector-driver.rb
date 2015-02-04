@@ -15,12 +15,8 @@ end
 
 words = WordConnector.new(@items)
 
-if @items.length == 2 
-  puts words.print_two_items
-else 
-  puts words.print_three_or_more_items
-end
-  
+puts words.print_items
+
 
 
 

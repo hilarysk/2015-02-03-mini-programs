@@ -1,3 +1,5 @@
+require "active_support/core_ext/numeric/conversions.rb"
+
 # Class: PhoneNumberFormatter
 #
 # Formats phone numbers.
@@ -39,9 +41,6 @@ class PhoneNumberFormatter
   # None
   
   def format_phone
-    areacode = @phone_number[0, 3]
-    firstpart = @phone_number[3, 3]
-    secondpart = @phone_number[6, 4]
-    return "(#{areacode}) #{firstpart}-#{secondpart}"
+    @phone_number.to_s(:phone, area_code: true)
   end
 end

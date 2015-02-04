@@ -8,12 +8,12 @@ class WordConnectorTest < Minitest::Test
   end
   
   def test_print_three_items_method
-    assert_equal("simon, fish, and cat", @wc.print_three_or_more_items)
+    assert_equal("simon, fish, and cat", @wc.print_items)
   end
   
   def test_print_two_items_method
     wcc = WordConnector.new(["simon", "cat"])
-    assert_equal("simon and cat", wcc.print_two_items)
+    assert_equal("simon and cat", wcc.print_items)
   end
   
   # def test_wrong_input_for_text
